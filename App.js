@@ -1,25 +1,17 @@
-import React, {Component} from 'react';
-import {StyleSheet, View} from 'react-native';
-import FormLogin from './src/components/FormLogin';
+import React, { Component } from 'react';
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
 
+import Routes from './src/Routes';
+import reducers from './src/reducers'
 
- 
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-       <FormLogin></FormLogin>
-      </View>
+      <Provider store={createStore(reducers)}>
+        <Routes></Routes>
+      </Provider>
     );
   }
 }
 
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // backgroundColor: '#F5FCFF',
-  },
-});
