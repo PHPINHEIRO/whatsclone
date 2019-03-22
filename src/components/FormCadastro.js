@@ -41,10 +41,32 @@ class FormCadastro extends Component {
                         <Text style={styles.txtTitle}>WhatsApp Clone</Text>
                 </View>
                 <View style={{ flex: 4, justifyContent: 'center' }}>
-                    <TextInput placeholderTextColor='#FFF' value={this.props.nome} placeholder="Nome" style={{ fontSize: 20, height: 45,color:'#FFF' }} onChangeText={texto => this.props.modificaNome(texto)} />
-                    <TextInput placeholderTextColor='#FFF' value={this.props.email} placeholder="E-mail" style={{ fontSize: 20, height: 45,color:'#FFF' }} onChangeText={texto => this.props.modificaEmail(texto)} />
-                    <TextInput placeholderTextColor='#FFF' secureTextEntry={true} value={this.props.senha} placeholder="Senha" style={{ fontSize: 20, height: 45,color:'#FFF' }} onChangeText={texto => this.props.modificaSenha(texto)} />
-                    <Text style={{color:'#8f1537',fontSize:18}}>{this.props.erroCadastro}</Text>
+                    <TextInput 
+                        underlineColorAndroid='#115E54'
+                        placeholderTextColor='#FFF' 
+                        value={this.props.nome} 
+                        placeholder="Nome" 
+                        style={{ fontSize: 20, 
+                        height: 45,color:'#FFF' }} 
+                        onChangeText={texto => this.props.modificaNome(texto)} />
+                    <TextInput 
+                        underlineColorAndroid='#115E54'
+                        placeholderTextColor='#FFF' 
+                        value={this.props.email} 
+                        placeholder="E-mail" 
+                        style={{ fontSize: 20, height: 45,color:'#FFF' }} 
+                        onChangeText={texto => this.props.modificaEmail(texto)} />
+                    <TextInput 
+                        underlineColorAndroid='#115E54'
+                        placeholderTextColor='#FFF' 
+                        secureTextEntry={true} 
+                        value={this.props.senha} 
+                        placeholder="Senha" 
+                        style={{ fontSize: 20, height: 45,color:'#FFF' }} 
+                        onChangeText={texto => this.props.modificaSenha(texto)} />
+                    <Text 
+                        style={{color:'#8f1537',fontSize:18}}>{this.props.erroCadastro}
+                    </Text>
                 </View>
                 <View style={{ flex: 1 }}>
                     {this.renderBtnCadastrar()}

@@ -36,8 +36,21 @@ class FormLogin extends Component {
                         <Text style={styles.txtTitle}>WhatsApp Clone</Text>
                     </View>
                     <View style={styles.formLogin}>
-                        <TextInput placeholderTextColor='#FFF' value={this.props.email} style={styles.input} placeholder='E-mail' onChangeText={texto => this.props.modificaEmail(texto)}></TextInput>
-                        <TextInput placeholderTextColor='#FFF' secureTextEntry={true} value={this.props.senha} style={styles.input} placeholder='Senha' onChangeText={texto => this.props.modificaSenha(texto)}></TextInput>
+                        <TextInput 
+                            underlineColorAndroid='#115E54' 
+                            placeholderTextColor='#FFF' 
+                            value={this.props.email} 
+                            style={styles.input} 
+                            placeholder='E-mail' 
+                            onChangeText={texto => this.props.modificaEmail(texto)}></TextInput>
+                        <TextInput 
+                            underlineColorAndroid='#115E54'
+                            placeholderTextColor='#FFF' 
+                            secureTextEntry={true} 
+                            value={this.props.senha} 
+                            style={styles.input} 
+                            placeholder='Senha' 
+                            onChangeText={texto => this.props.modificaSenha(texto)}></TextInput>
                         <Text style={{color:'#8f1537',fontSize:18}}>{this.props.erroLogin}</Text>
                         <TouchableHighlight onPress={() => Actions.formcadastro()}>
                             <Text style={styles.txt}>Ainda nao tem cadrastro? Cadastre-se</Text>
