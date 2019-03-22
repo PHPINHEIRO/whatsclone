@@ -1,14 +1,31 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, TextInput, Button, TouchableHighlight, ImageBackground } from 'react-native'
+import { 
+    Text, 
+    StyleSheet, 
+    View, 
+    TextInput, 
+    Button, 
+    TouchableHighlight, 
+    ImageBackground,
+    ActivityIndicator 
+} from 'react-native'
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux'
 import { modificaEmail, modificaSenha,autenticarUsuario } from '../actions/AutenticacaoAction'
 
-class FormLogin extends Component {
+class FormLogin extends Component { 
 
     _autenticarUsuario(){
         const { email, senha } = this.props
         this.props.autenticarUsuario({ email,senha})
+    }
+
+    renderBtnAcessar(){
+        if (this.props.loadingLogin) {
+            return(<ActivityIndicator size='large'></ActivityIndicator>)
+        } else {
+            return(<Button title='Acessar' color='#115E54' onPress={() =>this._autenticarUsuario()}></Button>) 
+        }
     }
 
     render() {
@@ -27,7 +44,9 @@ class FormLogin extends Component {
                         </TouchableHighlight>
                     </View>
                     <View style={styles.button}>
-                        <Button title='Acessar' color='#115E54' onPress={() =>this._autenticarUsuario()}></Button>
+                       {
+                           this.renderBtnAcessar()
+                       }
                     </View>
                 </View>
             </ImageBackground>
@@ -72,6 +91,7 @@ const mapStateToProps = state => (
         email: state.AutenticacaoReducer.email,
         senha: state.AutenticacaoReducer.senha,
         erroLogin: state.AutenticacaoReducer.erroLogin,
+        loadingLogin: state.AutenticacaoReducer.loadingLogin,
     }
 )
 export default connect(mapStateToProps, { modificaEmail, modificaSenha, autenticarUsuario })(FormLogin)
