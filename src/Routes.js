@@ -5,6 +5,7 @@ import FormLogin from './components/FormLogin'
 import BoasVindas from './components/BoasVindas';
 import Principal from './components/Principal';
 import AdicionarContato from './components/AdicionarContato';
+import Conversa from './components/Conversa';
 
 export default props => (
     <Router >
@@ -14,6 +15,7 @@ export default props => (
             <Scene key='bemvindo' component={BoasVindas} title='Cadastro' hideNavBar={true}/>
             <Scene key='principal' component={Principal} title='Principal' hideNavBar={true}/>
             <Scene key='adicionarContato' component={AdicionarContato} title="Adicionar Contato" hideNavBar={false} />
+            <Scene key='conversa' component={Conversa} title="Conversa" hideNavBar={false} />
         </Stack>
     </Router>
 )
